@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+   Created Or Edited on: 03/01/2016
+   Author: Zach
+           qoogood1234@gmail.com
+-->
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="andbot">
+  <xacro:property name="PI" value="3.1415926535897931"/>
+  <xacro:property name="radius_wheel" value="0.0958"/>
+  <xacro:property name="distance_between_wheels" value="0.385"/>
+  <arg name="gui" value="true"/>
+
+</robot>
