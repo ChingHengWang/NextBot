@@ -19,7 +19,7 @@
 
   <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find micro_zachbot)/worlds/maze_static_h2.world"/>
+    <arg name="world_name" value="$(find NextBot)/worlds/maze_static_h2.world"/>
     <arg name="debug" value="$(arg debug)" />
     <arg name="gui" value="$(arg gui)" />
     <arg name="paused" value="$(arg paused)"/>
@@ -29,7 +29,7 @@
 
   <!-- Load the URDF into the ROS Parameter Server -->
   <param name="robot_description"
-	 command="$(find xacro)/xacro.py '$(find micro_zachbot)/robot_description/urdf/andbot_wide.xacro'" />
+	 command="$(find xacro)/xacro.py '$(find NextBot)/robot_description/urdf/andbot_wide.xacro'" />
 
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
@@ -37,7 +37,7 @@
 
 
   <!-- Load joint controller configurations from YAML file to parameter server -->
-  <rosparam file="$(find micro_zachbot)/robot_description/config/andbot_wide.yaml" command="load"/>
+  <rosparam file="$(find NextBot)/robot_description/config/andbot_wide.yaml" command="load"/>
 
   <!-- load the controllers -->
   <node name="controller_spawner"
@@ -52,7 +52,7 @@
 
   <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
-    <param name="robot_description" command="$(find xacro)/xacro.py '$(find micro_zachbot)/robot_description/urdf/andbot_wide.xacro'" />
+    <param name="robot_description" command="$(find xacro)/xacro.py '$(find NextBot)/robot_description/urdf/andbot_wide.xacro'" />
     <remap from="/joint_states" to="/andbot_wide/joint_states" />
   </node>
 
@@ -62,6 +62,6 @@
 
 
 
- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find micro_zachbot)/andbot.rviz" />
+ <node name="rviz" pkg="rviz" type="rviz" args="-d $(find NextBot)/andbot.rviz" />
 
 </launch>

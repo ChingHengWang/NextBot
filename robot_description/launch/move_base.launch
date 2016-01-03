@@ -12,7 +12,7 @@
 
   <!-- Run the map server  -->
 <!--
-  <node name="map_server" pkg="map_server" type="map_server" args="/home/kkuei/catkin_ws/src/micro_zachbot/my_map2.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="/home/kkuei/catkin_ws/src/NextBot/my_map2.yaml"/>
 
 -->
 
@@ -23,11 +23,11 @@
 
   <!-- Run Move Base -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
-    <rosparam file="$(find micro_zachbot)/costmap_common_params.yaml" command="load" ns="global_costmap" />
-    <rosparam file="$(find micro_zachbot)/costmap_common_params.yaml" command="load" ns="local_costmap" />
-    <rosparam file="$(find micro_zachbot)/local_costmap_params.yaml" command="load" />
-    <rosparam file="$(find micro_zachbot)/global_costmap_params.yaml" command="load" />
-    <rosparam file="$(find micro_zachbot)/base_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find NextBot)/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find NextBot)/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find NextBot)/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find NextBot)/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find NextBot)/base_local_planner_params.yaml" command="load" />
     <remap from="/cmd_vel" to="/andbot/cmd_vel"/>
   </node>
 
